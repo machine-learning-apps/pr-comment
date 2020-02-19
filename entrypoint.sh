@@ -34,7 +34,7 @@ else
   end
   pr_number = pr["number"]
 end
-file_path = ARGV
+file_path = ARGV[0]
 
 puts Dir.entries(".")
 
