@@ -11,31 +11,28 @@ A GitHub action that will comment on the relevant open PR with a file contents w
 ### Sample workflow
 
 ```
-name: pr-comment example
+  
+name: example
 on: pull_request
 jobs:
   example:
-    name: sample comment
+    name: example
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: mkdir -p path/to/artifact
-      - run: echo hello > path/to/artifact/world.txt
+      - run: mkdir -p output/
+      - run: echo "This is a comment" > output/results.txt
       - uses: actions/upload-artifact@v1
         with:
-          name: my-artifact
-          path: path/to/artifact
-
+          name: results
+          path: output
       - uses: actions/download-artifact@v1
         with:
-          name: my-artifact
-          path: path/to/artifact
-          
-- run: cat path/to/artifact
+          name: results
       - name: comment PR
         uses: machine-learning-apps/pr-comment@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: "Check out this message!"
+          path: results/results.txt
 ```
