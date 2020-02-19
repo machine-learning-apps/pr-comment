@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: mkdir -p output/
-      - run: echo "This is a comment" > output/results.txt
+      - run: echo "This is fancy a comment" > output/results.txt
       - uses: actions/upload-artifact@v1
         with:
           name: results
