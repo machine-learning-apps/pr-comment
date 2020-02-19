@@ -1,0 +1,15 @@
+name: PR Comment from File
+author: Alexander Matheson <awmatheson@github.com>
+description: Leaves a comment on an open PR based on the contents of a file.
+branding:
+  icon: 'message-square'  
+  color: 'black'
+inputs:
+  path: 
+    description: file path
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
