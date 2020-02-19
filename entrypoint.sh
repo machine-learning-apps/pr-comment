@@ -35,7 +35,10 @@ else
   pr_number = pr["number"]
 end
 file_path = ARGV
-message = File.read('file_path')
+
+puts Dir.entries(".")
+
+message = File.read(file_path)
 
 coms = github.issue_comments(repo, pr_number)
 
