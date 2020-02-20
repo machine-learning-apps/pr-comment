@@ -36,7 +36,7 @@ else
 end
 file_path = ARGV[0]
 
-puts Dir.entries("")
+puts Dir.entries(".")
 
 message = File.read(file_path)
 
