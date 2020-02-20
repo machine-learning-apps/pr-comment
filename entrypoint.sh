@@ -36,6 +36,8 @@ else
 end
 file_path = ARGV[0]
 
+puts Dir.entries("")
+
 message = File.read(file_path)
 
 coms = github.issue_comments(repo, pr_number)
