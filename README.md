@@ -6,6 +6,7 @@ A GitHub action that will comment on the relevant open PR with a file contents w
 
 - Requires the `GITHUB_TOKEN` secret.
 - Requires the comment's artifact in the `msg` parameter.
+- Requires a comment prefix in the `prefix` parameter. Comments with the prefix will be subsequently updated if the action is run again.
 - Supports `push` and `pull_request` event types.
 
 ### Sample workflow
@@ -35,4 +36,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           path: results/results.txt
+          prefix: Benchmark Results
 ```
