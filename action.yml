@@ -1,6 +1,6 @@
 name: PR Comment and Update from File
 author: Ethan Graf <ethan.graf@fuzzbuzz.io>
-description: Leaves a comment on an open PR based on the contents of a file. If a comment with the right prefix exists, update instead. Based off PR Comment action by Alexander Matheson.
+description: Leaves a comment on an open PR based on the contents of a file. If a comment with the right prefix exists, update instead. 
 branding:
   icon: 'message-square'  
   color: 'black'

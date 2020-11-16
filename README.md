@@ -1,6 +1,8 @@
-# PR Comment Action
+# PR Comment and Update Action
 
-A GitHub action that will comment on the relevant open PR with a file contents when a commit is pushed.
+A GitHub action that will comment on the relevant open PR with a file contents when a commit is pushed. If the action has already commented on the PR, an update to the previous comment will be made instead.
+
+Based off of [PR Comment Action](https://github.com/machine-learning-apps/pr-comment) by Alexander Matheson.
 
 ## Usage
 
