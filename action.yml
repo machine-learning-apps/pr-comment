@@ -1,6 +1,6 @@
-name: PR Comment from File
-author: Alexander Matheson <awmatheson@github.com>
-description: Leaves a comment on an open PR based on the contents of a file.
+name: PR Comment and Update from File
+author: Alexander Matheson <awmatheson@github.com> Ethan Graf <ethan.graf@fuzzbuzz.io>
+description: Leaves a comment on an open PR based on the contents of a file. If a comment with the right prefix exists, update instead.
 branding:
   icon: 'message-square'  
   color: 'black'
@@ -8,8 +8,12 @@ inputs:
   path: 
     description: file path
     required: true
+  prefix:
+    description: comment prefix
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.path }}
+    - ${{ inputs.prefix }}

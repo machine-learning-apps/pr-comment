@@ -13,8 +13,8 @@ if !ENV["GITHUB_TOKEN"]
   exit(1)
 end
 
-if ARGV.empty?
-  puts "Missing file path argument."
+if ARGV.length < 2
+  puts "Missing arguments."
   exit(1)
 end
 
@@ -35,6 +35,7 @@ else
   pr_number = pr["number"]
 end
 file_path = ARGV[0]
+prefix = ARGV[1]
 
 puts Dir.entries(".")
 
@@ -42,4 +43,9 @@ message = File.read(file_path)
 
 coms = github.issue_comments(repo, pr_number)
 
-github.add_comment(repo, pr_number, message)
+com = coms.find { |com| com["body"].start_with?(prefix) }
+if com == nil
+  github.add_comment(repo, pr_number, prefix + "\n\n" + message)
+else
+  com = github.update_comment(repo, com["id"], com["body"] + "\n\n" + message)
+end
