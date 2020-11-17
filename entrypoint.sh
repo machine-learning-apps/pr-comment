@@ -47,5 +47,6 @@ com = coms.find { |com| com["body"].start_with?(prefix) }
 if com == nil
   github.add_comment(repo, pr_number, prefix + "\n\n" + message)
 else
-  com = github.update_comment(repo, com["id"], com["body"] + "\n\n" + message)
+  cur_time = Time.new
+  com = github.update_comment(repo, com["id"], com["body"] + "\n\nUpdate on " + cur_time.inspect + "\n\n" + message)
 end
